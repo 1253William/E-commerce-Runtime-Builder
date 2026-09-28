@@ -1,0 +1,32 @@
+name = "seltra-sandbox-worker"
+main = "src/index.ts"
+compatibility_date = "2026-09-24"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+VISION_MODEL = "@cf/qwen/qwen3.8-27b"
+SANDBOX_TRANSPORT = "rpc"
+
+[[containers]]
+class_name = "Sandbox"
+image = "./Dockerfile"
+instance_type = "lite"
+max_instances = 100
+
+[[durable_objects.bindings]]
+name = "Sandbox"
+class_name = "Sandbox"
+
+[browser]
+binding = "BROWSER"
+remote = true
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "seltra-assets"
+preview_bucket_name = "seltra-assets-preview"
+remote = true
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Sandbox"]

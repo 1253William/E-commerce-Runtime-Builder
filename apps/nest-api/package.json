@@ -1,0 +1,36 @@
+{
+  "name": "@seltra/nest-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_OPTIONS=\"--no-network-family-autoselection\" tsx watch src/main.ts",
+    "start:dev": "NODE_OPTIONS=\"--no-network-family-autoselection\" tsx watch src/main.ts",
+    "build": "tsc --outDir dist --declaration false",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/**/*.test.ts",
+    "prisma:generate": "prisma generate --schema prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema prisma/schema.prisma",
+    "prisma:deploy": "prisma migrate deploy --schema prisma/schema.prisma",
+    "prisma:status": "prisma migrate status --schema prisma/schema.prisma"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/platform-express": "^11.1.6",
+    "@prisma/client": "^6.16.2",
+    "@seltra/agents": "workspace:*",
+    "@seltra/sandbox": "workspace:*",
+    "@seltra/shared": "workspace:*",
+    "dotenv": "^17.2.2",
+    "pg-boss": "^12.5.4",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^24.0.0",
+    "prisma": "^6.16.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.2"
+  }
+}

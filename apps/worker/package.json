@@ -1,0 +1,25 @@
+{
+  "name": "@seltra/worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_OPTIONS=\"--no-network-family-autoselection\" tsx watch src/main.ts",
+    "start:dev": "NODE_OPTIONS=\"--no-network-family-autoselection\" tsx watch src/main.ts",
+    "build": "tsc --outDir dist --declaration false",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {
+    "pg-boss": "^12.5.4",
+    "@prisma/client": "^6.16.2",
+    "@seltra/agents": "workspace:*",
+    "@seltra/ai": "workspace:*",
+    "@seltra/sandbox": "workspace:*",
+    "dotenv": "^17.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.2"
+  }
+}

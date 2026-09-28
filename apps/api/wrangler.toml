@@ -1,0 +1,20 @@
+name = "seltra-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-24"
+compatibility_flags = ["nodejs_compat"]
+[vars]
+APP_ENV = "development"
+WEB_ORIGIN = "http://localhost:3000"
+[[d1_databases]]
+binding = "DB"
+database_name = "seltra-db"
+database_id = "0f0f964b-ff3e-4bf8-ae54-607d027c4ee2"
+migrations_dir = "../../migrations"
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "seltra-assets"
+preview_bucket_name = "seltra-assets-preview"
+[dev]
+local_protocol = "http"
+[observability]
+enabled = true

@@ -1,0 +1,20 @@
+{
+  "name": "@seltra/sandbox-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-local.mjs",
+    "dev:local": "node dev-local.mjs",
+    "deploy": "node deploy.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cloudflare/puppeteer": "1.1.0",
+    "@cloudflare/sandbox": "0.12.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260925.2",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.141.0"
+  }
+}

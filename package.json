@@ -1,0 +1,25 @@
+{
+  "name": "seltra-v5",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "dev": "turbo dev --filter=@seltra/nest-api --filter=@seltra/web --filter=@seltra/worker --filter=@seltra/sandbox-worker",
+    "dev:legacy": "pnpm --filter @seltra/api dev -- --port 8787",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "deploy:sandbox-worker": "pnpm --filter @seltra/sandbox-worker run deploy",
+    "db:migrate:local": "wrangler d1 migrations apply seltra-db --local --config apps/api/wrangler.toml",
+    "db:migrate:remote": "wrangler d1 migrations apply seltra-db --remote --config apps/api/wrangler.toml",
+    "db:migrate:postgres": "pnpm --filter @seltra/nest-api prisma:migrate",
+    "db:migrate:postgres:deploy": "pnpm --filter @seltra/nest-api prisma:deploy",
+    "local:sandbox": "pnpm --filter @seltra/sandbox-worker run dev:local"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.141.0"
+  }
+}
